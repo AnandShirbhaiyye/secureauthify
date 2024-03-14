@@ -10,7 +10,7 @@ import styles from "../styles/Username.module.css";
 export default function Password() {
   const formik = useFormik({
     initialValues: {
-      password: "",
+      password: "admin@123",
     },
     validate: passwordValidate,
     validateOnBlur: false,
@@ -21,7 +21,7 @@ export default function Password() {
   });
 
   // Make sure formik has been initialized before accessing getFieldProps
-  const usernameProps = formik.getFieldProps("password");
+  const passwordProps = formik.getFieldProps("password");
 
   return (
     <div className="container mx-auto">
@@ -42,8 +42,8 @@ export default function Password() {
                 <img src={avatar} className={styles.profile_img} alt="avatar" />
               </div>
               <input
-                {...usernameProps}
-                type="text"
+                {...passwordProps}
+                type="password"
                 placeholder="Password"
                 className={`${styles.input} w-full p-3 border border-gray-300 rounded-md`}
               />
@@ -52,7 +52,7 @@ export default function Password() {
               type="submit"
               className={`${styles.btn} w-full py-3 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition duration-300`}
             >
-              Let's Go
+              Sign in
             </button>
             <div className="mt-4 text-gray-500">
               Forgot Password?{" "}
